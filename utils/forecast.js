@@ -1,4 +1,5 @@
 const request=require('request');
+
 const forecast=(latitude,longitude,callback)=>{
     const url='http://api.weatherstack.com/current?access_key=d60b68a2e5f47bdfac73dfe04309392a&query='+encodeURIComponent(latitude)+','+encodeURIComponent(longitude)+'&units=f'
     
@@ -11,7 +12,7 @@ const forecast=(latitude,longitude,callback)=>{
       }
        else{
           callback(undefined,
-            "It is currently "+body.current.temperature+" degrees out."+" It feels like "+body.current.feelslike+" degree out"
+            "It is currently "+body.current.temperature+" degrees out."+" It feels like "+body.current.feelslike+" degree out. The Humidity is "+body.current.humidity+"% ."
           );
        }
     })
